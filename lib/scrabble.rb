@@ -17,6 +17,7 @@ class Scrabble
     return 0 if @word == nil || @word.strip.empty?
     total = sum(@word.downcase.chars)
     return total * 2 if double_word
+    return total * 3 if triple_word
     total
   end
 
