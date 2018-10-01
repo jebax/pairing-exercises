@@ -13,9 +13,10 @@ class Scrabble
     @word = word
   end
 
-  def score
+  def score(double_word = false, triple_word = false)
     return 0 if @word == nil || @word.strip.empty?
-    sum(@word.downcase.chars)
+    total = sum(@word.downcase.chars)
+    total
   end
 
   def sum(word)

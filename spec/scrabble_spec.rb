@@ -51,5 +51,11 @@ RSpec.describe Scrabble do
 
       expect(scrabble.score).to eq 41
     end
+
+    it 'returns a double value for a double scoring word' do
+      scrabble = Scrabble.new("hello")
+
+      expect(scrabble.score(true)).to eq 16
+    end
   end
 end
