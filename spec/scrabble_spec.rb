@@ -63,5 +63,11 @@ RSpec.describe Scrabble do
 
       expect(scrabble.score(false, true)).to eq 24
     end
+
+    it 'returns 6x value for both double and triple scoring word' do
+      scrabble = Scrabble.new("hello")
+
+      expect(scrabble.score(true, true)).to eq 48
+    end
   end
 end
