@@ -8,6 +8,7 @@ class Scrabble
     8 => ["j", "x"],
     10 => ["q", "z"]
   }
+  
   def initialize(word)
     @word = word
   end
@@ -16,6 +17,7 @@ class Scrabble
     return 0 if @word == nil || !@word.match(/[A-Za-z]/)
     total = 0
     chars = @word.downcase.chars
+
     SCORES.each do |score, letters|
       chars.each do |char|
         total += score if letters.include? char
