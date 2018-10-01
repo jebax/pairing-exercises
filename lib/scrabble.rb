@@ -16,6 +16,7 @@ class Scrabble
   def score(double_word = false, triple_word = false)
     return 0 if @word == nil || @word.strip.empty?
     total = sum(@word.downcase.chars)
+    return total * 2 if double_word
     total
   end
 
