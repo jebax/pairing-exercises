@@ -15,14 +15,13 @@ class Scrabble
 
   def score
     return 0 if @word == nil || @word.strip.empty?
-    total = 0
-    chars = @word.downcase.chars
+    sum(@word.downcase.chars)
+  end
 
+  def sum(word)
     SCORES.each do |score, letters|
-      chars.each do |char|
-        total += score if letters.include? char
-      end
+      word.map! { |char| letters.include?(char) ? score : char }
     end
-    total
+    word.sum
   end
 end
