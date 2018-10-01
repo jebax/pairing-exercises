@@ -8,13 +8,13 @@ class Scrabble
     8 => ["j", "x"],
     10 => ["q", "z"]
   }
-  
+
   def initialize(word)
     @word = word
   end
 
   def score
-    return 0 if @word == nil || !@word.match(/[A-Za-z]/)
+    return 0 if @word == nil || @word.strip.empty?
     total = 0
     chars = @word.downcase.chars
 
