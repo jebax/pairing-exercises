@@ -13,8 +13,7 @@ class Scrabble
   end
 
   def score
-    return 0 if @word == nil
-    return 0 unless @word.match(/[A-Za-z]/)
+    return 0 if @word == nil || !@word.match(/[A-Za-z]/)
     total = 0
     chars = @word.downcase.chars
     SCORES.each do |score, letters|
