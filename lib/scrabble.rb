@@ -1,31 +1,12 @@
 class Scrabble
   SCORES = {
-    "a" => 1,
-    "b" => 3,
-    "c" => 4,
-    "d" => 2,
-    "e" => 1,
-    "f" => 4,
-    "g" => 2,
-    "h" => 4,
-    "i" => 1,
-    "j" => 8,
-    "k" => 5,
-    "l" => 1,
-    "m" => 3,
-    "n" => 1,
-    "o" => 1,
-    "p" => 3,
-    "q" => 10,
-    "r" => 1,
-    "s" => 1,
-    "t" => 1,
-    "u" => 1,
-    "v" => 4,
-    "w" => 4,
-    "x" => 8,
-    "y" => 4,
-    "z" => 10
+    1 => ["a", "e", "i", "l", "n", "o", "r", "s", "t", "u"],
+    2 => ["d", "g"],
+    3 => ["b", "c", "m", "p"],
+    4 => ["f", "h", "v", "w", "y"],
+    5 => ["k"],
+    8 => ["j", "x"],
+    10 => ["q", "z"]
   }
   def initialize(word)
     @word = word
@@ -34,7 +15,13 @@ class Scrabble
   def score
     return 0 if @word == nil
     return 0 unless @word.match(/[A-Za-z]/)
-    letters = @word.downcase.chars
-    letters.map{|letter| SCORES[letter]}.sum
+    total = 0
+    chars = @word.downcase.chars
+    SCORES.each do |score, letters|
+      chars.each do |char|
+        total += score if letters.include? char
+      end
+    end
+    total
   end
 end
